@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "913617357765",
+    "project_id": "makena-sapp",
+    "storage_bucket": "makena-sapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913617357765:android:f251715d2a289dc9bd99ac",
+        "android_client_info": {
+          "package_name": "com.example.nicolesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEgaLe5j1wM4Qoyubr301r67UMXjms1iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
