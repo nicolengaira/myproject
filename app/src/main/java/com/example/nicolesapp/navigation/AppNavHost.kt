@@ -57,6 +57,10 @@ fun AppNavHost(
             IntentScreen(navController = navController)
         }
 
+        composable(ROUT_INTENT) {
+            IntentScreen(navController = navController)
+        }
+
 
 
 

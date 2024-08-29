@@ -135,10 +135,7 @@ fun LoginScreen(navController: NavController) {
                         navController.navigate(ROUT_SIGNUP)
                     },
                 textAlign = TextAlign.Center)
-
-
         }
-
 }
 
 

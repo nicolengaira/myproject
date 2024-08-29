@@ -59,6 +59,7 @@ import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.nicolesapp.R
+import com.example.nicolesapp.ui.theme.Babypink
 import com.example.nicolesapp.ui.theme.pink387
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,7 +73,7 @@ fun IntentScreen(navController: NavController) {
         Scaffold(
             bottomBar = {
                 NavigationBar {
-                    contentColorFor(backgroundColor = Color.Magenta)
+                    contentColorFor(backgroundColor = Babypink)
                     bottomNavItems.forEachIndexed { index, bottomNavItem ->
                         NavigationBarItem(
                             selected = index == selected,
@@ -158,21 +159,11 @@ fun IntentScreen(navController: NavController) {
                         //End of card
 
                         Column(modifier = Modifier.padding(start = 20.dp)) {
-                            Text(text = "Visit Lavington", fontSize = 25.sp)
-                            Text(text = "The best property you can find!")
+                            Text(text = "Personal Growth!", fontSize = 25.sp)
+                            Text(text = "Give yourself grace in challenging moments..")
                         }
 
-
                     }
-                    Row {
-                        Icon(imageVector = Icons.Default.Star, contentDescription = "Star")
-                        Icon(imageVector = Icons.Default.Star, contentDescription = "Star")
-                        Icon(imageVector = Icons.Default.Star, contentDescription = "Star")
-                        Icon(imageVector = Icons.Default.Star, contentDescription = "Star")
-                        Icon(imageVector = Icons.Default.Star, contentDescription = "Star")
-                    }
-
-                    Text(text = "14,400 Reviews")
 
                     val mContext = LocalContext.current
 
@@ -208,6 +199,7 @@ fun IntentScreen(navController: NavController) {
                     }
 
                     Spacer(modifier = Modifier.height(20.dp))
+
                     Button(
                         onClick = {val callIntent=Intent(Intent.ACTION_DIAL)
                             callIntent.data="tel:0720245837".toUri()
