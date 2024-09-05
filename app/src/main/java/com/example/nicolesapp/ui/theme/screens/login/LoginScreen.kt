@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -18,6 +19,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -56,23 +59,16 @@ fun LoginScreen(navController: NavController) {
         ),
         horizontalAlignment = Alignment.CenterHorizontally)
         {
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
-            Image(painter = painterResource(id = R.drawable.healthymind), contentDescription = "healthy",
-                modifier = Modifier
-                    .size(100.dp),
-                contentScale = ContentScale.Crop
-                )
 
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Text(text = "Welcome Back!",
-                fontSize = 50.sp,
-                fontFamily = FontFamily.Cursive,
+            Text(text = "INSIGHT",
+                fontSize = 30.sp,
+                fontFamily = FontFamily.SansSerif,
                 color = Mypurple )
 
             Text(text = "Unlock the serenity within...",
-                fontSize = 16.sp,
+                fontSize = 18.sp,
                 fontFamily = FontFamily.SansSerif)
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -80,7 +76,7 @@ fun LoginScreen(navController: NavController) {
             var email by remember {mutableStateOf("")}
             var password by remember { mutableStateOf("")}
 
-          OutlinedTextField(value = email,
+          TextField(value = email,
               onValueChange = {email = it},
               label = { Text(text = "Email Address")},
               modifier = Modifier
@@ -91,7 +87,7 @@ fun LoginScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            OutlinedTextField(value = password,
+            TextField(value = password,
                 onValueChange = {password = it},
                 label = { Text(text = "password")},
                 modifier = Modifier
@@ -117,7 +113,7 @@ fun LoginScreen(navController: NavController) {
                 Text(text = "Log in")
             }
 
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
 
             Text(text = "Don't have an account? Register here",

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -18,6 +19,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -42,6 +45,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.nicolesapp.R
 import com.example.nicolesapp.data.AuthViewModel
 import com.example.nicolesapp.navigation.ROUT_LOGIN
+import com.example.nicolesapp.ui.theme.Mypurple
 
 
 @Composable
@@ -57,30 +61,29 @@ fun SignupScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
-        Image(
-            painter = painterResource(id = R.drawable.healthymind),
-            contentDescription = "home",
-            modifier = Modifier
-                .size(200.dp),
-            contentScale = ContentScale.Crop
-        )
+
+
 
         Text(
             text = "Create an Account",
-            fontSize = 50.sp,
-            fontFamily = FontFamily.Cursive,
-            color = Color.Magenta
+            fontSize = 30.sp,
+            fontFamily = FontFamily.SansSerif,
+            color = Mypurple,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
 
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
 
         var name by remember { mutableStateOf("") }
         var email by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
         var confpassword by remember { mutableStateOf("") }
 
-        OutlinedTextField(
+        TextField(
             value = name ,
             onValueChange ={ name = it },
             label = { Text(text = "Fullname") },
@@ -93,7 +96,7 @@ fun SignupScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        OutlinedTextField(
+        TextField(
             value = email,
             onValueChange ={ email = it },
             label = { Text(text = "Email Address") },
@@ -106,7 +109,7 @@ fun SignupScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        OutlinedTextField(
+        TextField(
             value = password,
             onValueChange ={ password = it },
             label = { Text(text = "Password") },
@@ -120,7 +123,7 @@ fun SignupScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        OutlinedTextField(
+        TextField(
             value = confpassword,
             onValueChange ={ confpassword = it },
             label = { Text(text = "Confirm Password") },
@@ -132,18 +135,16 @@ fun SignupScreen(navController: NavController) {
             visualTransformation = PasswordVisualTransformation ()
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
 
-        Text(text = "By creating an account you agree to our Terms & Conditions and Privacy Policy",
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth())
 
         Spacer(modifier = Modifier.height(10.dp))
 
         val context = LocalContext.current
         val authViewModel = AuthViewModel(navController, context)
         Button(
-            onClick = {authViewModel.signup(name, email, password,confpassword)},
+            onClick = {
+                authViewModel.signup(name, email, password,confpassword)
+                      },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp)
@@ -169,9 +170,13 @@ fun SignupScreen(navController: NavController) {
         ){
             Text(text = "LOGIN")
         }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(text = "By creating an account you agree to our Terms & Conditions and Privacy Policy",
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(),)
     }
-}
-fun OutlinedTextField(value: String, onValueChange: () -> Unit, label: () -> Unit, modifier: Modifier, leadingIcon: Unit) {
 }
 
 

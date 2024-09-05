@@ -38,8 +38,8 @@ class AuthViewModel(var navController: NavController, var context: Context){
                     regRef.setValue(userdata).addOnCompleteListener {
 
                         if (it.isSuccessful){
+                            navController.navigate(ROUT_LOGIN)
                             Toast.makeText(context,"Registered Successfully", Toast.LENGTH_LONG).show()
-                            navController.navigate(ROUT_DASHBOARD)
 
                         }else{
                             Toast.makeText(context,"${it.exception!!.message}", Toast.LENGTH_LONG).show()

@@ -9,6 +9,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.nicolesapp.ui.theme.screens.home.HomeScreen
 import com.example.nicolesapp.ui.theme.screens.about.AboutScreen
 import com.example.nicolesapp.ui.theme.screens.dashboard.DashboardScreen
+import com.example.nicolesapp.ui.theme.screens.discover.DiscoverScreen
+import com.example.nicolesapp.ui.theme.screens.guide.AddGuideScreen
+import com.example.nicolesapp.ui.theme.screens.guide.ViewGuideScreen
 import com.example.nicolesapp.ui.theme.screens.login.LoginScreen
 import com.example.nicolesapp.ui.theme.screens.signup.SignupScreen
 import com.example.nicolesapp.ui.theme.screens.splash.SplashScreen
@@ -67,6 +70,18 @@ fun AppNavHost(
         composable(ROUT_DASHBOARD) {
             DashboardScreen(navController = navController)
         }
+        composable(ROUT_DISCOVER) {
+            DiscoverScreen(navController = navController)
+        }
+
+        composable(ROUT_ADD) {
+           AddGuideScreen(navController = navController)
+        }
+        composable(ROUT_VIEW) {
+            ViewGuideScreen(navController = navController)
+        }
+
+
 
 
 
