@@ -5,7 +5,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavController
 import com.example.nicolesapp.models.User
-import com.example.nicolesapp.navigation.ROUT_HOME
+import com.example.nicolesapp.navigation.ROUT_DASHBOARD
 import com.example.nicolesapp.navigation.ROUT_LOGIN
 import com.example.nicolesapp.navigation.ROUT_SIGNUP
 import com.google.firebase.auth.FirebaseAuth
@@ -39,7 +39,7 @@ class AuthViewModel(var navController: NavController, var context: Context){
 
                         if (it.isSuccessful){
                             Toast.makeText(context,"Registered Successfully", Toast.LENGTH_LONG).show()
-                            navController.navigate(ROUT_LOGIN)
+                            navController.navigate(ROUT_DASHBOARD)
 
                         }else{
                             Toast.makeText(context,"${it.exception!!.message}", Toast.LENGTH_LONG).show()
@@ -47,7 +47,7 @@ class AuthViewModel(var navController: NavController, var context: Context){
                         }
                     }
                 }else{
-                    navController.navigate(ROUT_SIGNUP)
+                    navController.navigate(ROUT_DASHBOARD)
                 }
 
             } }
@@ -64,9 +64,9 @@ class AuthViewModel(var navController: NavController, var context: Context){
                 progress.dismiss()
                 if (it.isSuccessful){
                     Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
-                    navController.navigate(ROUT_HOME)
+                    navController.navigate(ROUT_DASHBOARD)
                 }else{
-                    Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.context, "Unable to sign in to account", Toast.LENGTH_SHORT).show()
                 }
             }
 

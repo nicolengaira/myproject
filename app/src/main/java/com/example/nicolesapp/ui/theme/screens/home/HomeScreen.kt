@@ -32,6 +32,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.nicolesapp.R
 import com.example.nicolesapp.navigation.ROUT_ABOUT
+import com.example.nicolesapp.navigation.ROUT_DASHBOARD
+import com.example.nicolesapp.navigation.ROUT_SPLASH
 import com.example.nicolesapp.ui.theme.Babypink
 import com.example.nicolesapp.ui.theme.Mypurple
 import com.example.nicolesapp.ui.theme.serenepink
@@ -71,7 +73,7 @@ fun HomeScreen(navController: NavController){
         Spacer(modifier = Modifier.height(50.dp))
 
         Button(
-            onClick = { navController.navigate(ROUT_ABOUT) },
+            onClick = { navController.navigate(ROUT_DASHBOARD) },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp)

@@ -8,17 +8,19 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.nicolesapp.ui.theme.screens.home.HomeScreen
 import com.example.nicolesapp.ui.theme.screens.about.AboutScreen
-import com.example.nicolesapp.ui.theme.screens.details.DetailsScreen
+import com.example.nicolesapp.ui.theme.screens.dashboard.DashboardScreen
 import com.example.nicolesapp.ui.theme.screens.login.LoginScreen
 import com.example.nicolesapp.ui.theme.screens.signup.SignupScreen
 import com.example.nicolesapp.ui.theme.screens.splash.SplashScreen
 import com.example.nicolesapp.ui.theme.screens.intent.IntentScreen
+import com.example.nicolesapp.ui.theme.screens.taskmanager.AddTaskScreen
+import com.example.nicolesapp.ui.theme.screens.taskmanager.ViewTaskScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination:String = ROUT_HOME
+    startDestination:String = ROUT_SPLASH
 ) {
     NavHost(
         navController = navController,
@@ -48,18 +50,30 @@ fun AppNavHost(
             LoginScreen(navController = navController)
         }
 
-        composable(ROUT_DETAIL) {
-            DetailsScreen(navController = navController)
-
-        }
 
         composable(ROUT_INTENT) {
             IntentScreen(navController = navController)
         }
 
-        composable(ROUT_INTENT) {
-            IntentScreen(navController = navController)
+
+        composable(ADD_TASK) {
+            AddTaskScreen(navController = navController)
         }
+
+        composable(VIEW_TASK) {
+            ViewTaskScreen(navController =  navController)
+        }
+
+        composable(ROUT_DASHBOARD) {
+            DashboardScreen(navController = navController)
+        }
+
+
+
+
+
+
+
 
 
 

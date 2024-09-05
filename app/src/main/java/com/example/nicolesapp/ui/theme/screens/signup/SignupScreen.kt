@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,7 +51,7 @@ fun SignupScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .paint(
-                painterResource(id = R.drawable.backgroundimage),
+                painterResource(id = R.drawable.background),
                 contentScale = ContentScale.FillBounds
             ),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -62,7 +63,7 @@ fun SignupScreen(navController: NavController) {
             painter = painterResource(id = R.drawable.healthymind),
             contentDescription = "home",
             modifier = Modifier
-                .size(300.dp),
+                .size(200.dp),
             contentScale = ContentScale.Crop
         )
 
@@ -133,7 +134,9 @@ fun SignupScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        Text(text = "By creating an account you agree to our Terms & Conditions and Privacy Policy")
+        Text(text = "By creating an account you agree to our Terms & Conditions and Privacy Policy",
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth())
 
         Spacer(modifier = Modifier.height(10.dp))
 

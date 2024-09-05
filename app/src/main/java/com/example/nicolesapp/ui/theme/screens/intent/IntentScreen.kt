@@ -52,6 +52,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,7 +61,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.nicolesapp.R
 import com.example.nicolesapp.ui.theme.Babypink
-import com.example.nicolesapp.ui.theme.pink387
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -110,8 +110,10 @@ fun IntentScreen(navController: NavController) {
             },
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "Additional ") },
-                    colors = TopAppBarDefaults.mediumTopAppBarColors(pink387))
+                    title = { Text(text =  "Welcome to Insight..",
+                        fontFamily = FontFamily.Cursive,
+                        fontSize = 35.sp)},
+                    colors = TopAppBarDefaults.mediumTopAppBarColors(Babypink))
             },
 
             floatingActionButton = {
@@ -130,8 +132,13 @@ fun IntentScreen(navController: NavController) {
                         .fillMaxSize()
                         .padding(top = 80.dp, start = 20.dp),
                 ){
-                    //Row1
-                    Row {
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Column(modifier = Modifier.padding(start = 20.dp)) {
+                        Text(text = "Personal Growth!", fontSize = 25.sp)
+                        Text(text = "Give yourself grace in challenging moments..", fontSize = 16.sp)
+                    }
+
                         //Card1
                         Card {
                             Box(
@@ -144,7 +151,7 @@ fun IntentScreen(navController: NavController) {
                                     painter = painterResource(id = R.drawable.wellness),
                                     contentDescription = "home",
                                     modifier = Modifier.fillMaxSize(),
-                                    contentScale = ContentScale.Crop
+                                    contentScale = ContentScale.Crop,
                                 )
                                 Icon(
                                     imageVector = Icons.Default.Favorite,
@@ -156,32 +163,17 @@ fun IntentScreen(navController: NavController) {
                                 )
                             }
                         }
-                        //End of card
+                        //End of Card1
 
-                        Column(modifier = Modifier.padding(start = 20.dp)) {
-                            Text(text = "Personal Growth!", fontSize = 25.sp)
-                            Text(text = "Give yourself grace in challenging moments..")
-                        }
 
-                    }
+
+
 
                     val mContext = LocalContext.current
 
-                    Button(
-                        onClick = {val callIntent=Intent(Intent.ACTION_DIAL)
-                            callIntent.data="tel:0720245837".toUri()
-                            mContext.startActivity(callIntent)
-                        },
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
-                        shape = RoundedCornerShape(10.dp)
-                    ) {
-                        Text(text = "Call")
-
-                    }
-
                     //End of Row
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
 
 
                     Button(
@@ -192,96 +184,45 @@ fun IntentScreen(navController: NavController) {
                             .fillMaxWidth()
                             .height(50.dp)
                             .padding(start = 20.dp, end = 20.dp),
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
+                        colors = ButtonDefaults.buttonColors(Babypink),
                         shape = RoundedCornerShape(10.dp)
                     ){
                         Text(text = "mpesa")
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
 
                     Button(
                         onClick = {val callIntent=Intent(Intent.ACTION_DIAL)
-                            callIntent.data="tel:0720245837".toUri()
+                            callIntent.data="tel:0708220698".toUri()
                             mContext.startActivity(callIntent) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(50.dp)
                             .padding(start = 20.dp, end = 20.dp),
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
+                        colors = ButtonDefaults.buttonColors(Babypink),
                         shape = RoundedCornerShape(10.dp)
                     ){
                         Text(text = "call")
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                     Button(
                         onClick = { val smsIntent=Intent(Intent.ACTION_SENDTO)
-                            smsIntent.data="smsto:0720245837".toUri()
-                            smsIntent.putExtra("sms_body","Hello Glory,how was your day?")
+                            smsIntent.data="smsto:0708220698".toUri()
+                            smsIntent.putExtra("sms_body","Hello Nicole,how was your day?")
                             mContext.startActivity(smsIntent) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(50.dp)
                             .padding(start = 20.dp, end = 20.dp),
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
+                        colors = ButtonDefaults.buttonColors(Babypink),
                         shape = RoundedCornerShape(10.dp)
                     ){
                         Text(text = "sms")
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Button(
-                        onClick = { val shareIntent = Intent(Intent.ACTION_SEND)
-                            shareIntent.type = "text/plain"
-                            shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("akinyiglory2@gmail.com"))
-                            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
-                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
-                            mContext.startActivity(shareIntent)
-                         },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(50.dp)
-                            .padding(start = 20.dp, end = 20.dp),
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
-                        shape = RoundedCornerShape(10.dp)
-                    ){
-                        Text(text = "Email")
-                    }
 
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Button(
-                        onClick = {val shareIntent=Intent(Intent.ACTION_SEND)
-                            shareIntent.type="text/plain"
-                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool content")
-                            mContext.startActivity(Intent.createChooser(shareIntent, "Share")) },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(50.dp)
-                            .padding(start = 20.dp, end = 20.dp),
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
-                        shape = RoundedCornerShape(10.dp)
-                    ){
-                        Text(text = "Share")
-                    }
-
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Button(
-                        onClick = {val cameraIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                            if (cameraIntent.resolveActivity(mContext.packageManager)!=null){
-                                mContext.startActivity(cameraIntent)
-                            }else{
-                                println("Camera app is not available")
-                            } },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(50.dp)
-                            .padding(start = 20.dp, end = 20.dp),
-                        colors = ButtonDefaults.buttonColors(Color.Magenta),
-                        shape = RoundedCornerShape(10.dp)
-                    ){
-                        Text(text = "camera")
-                    }
                 }
             }
         )
@@ -311,14 +252,6 @@ val bottomNavItems = listOf(
         badges=5
     ),
 
-    BottomNavItem(
-        title = "Property",
-        route="property",
-        selectedIcon=Icons.Filled.PlayArrow,
-        unselectedIcon=Icons.Outlined.PlayArrow,
-        hasNews = true,
-        badges=1
-    ),
 
     BottomNavItem(
         title = "About",
@@ -331,8 +264,6 @@ val bottomNavItems = listOf(
 
 
     )
-
-
 
 data class BottomNavItem(
     val title :String,

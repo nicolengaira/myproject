@@ -51,16 +51,16 @@ fun LoginScreen(navController: NavController) {
     Column (modifier = Modifier
         .fillMaxSize()
         .paint(
-            painterResource(id = R.drawable.backgroundimage),
+            painterResource(id = R.drawable.background),
             contentScale = ContentScale.FillBounds
         ),
         horizontalAlignment = Alignment.CenterHorizontally)
         {
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
             Image(painter = painterResource(id = R.drawable.healthymind), contentDescription = "healthy",
                 modifier = Modifier
-                    .size(180.dp),
+                    .size(100.dp),
                 contentScale = ContentScale.Crop
                 )
 
@@ -116,12 +116,6 @@ fun LoginScreen(navController: NavController) {
             {
                 Text(text = "Log in")
             }
-
-            Text(text = "Forgot your login details? Get help signing in.",
-                fontSize = 15.sp,
-                fontFamily = FontFamily.SansSerif,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center)
 
             Spacer(modifier = Modifier.height(30.dp))
 
